@@ -1,0 +1,11 @@
+# Ignore config files containing API keys
+config.js
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Node if using Tailwind CLI later
+node_modules/
+dist/
