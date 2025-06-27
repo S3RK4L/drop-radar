@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="styles/style.css">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Drop Radar</title>
 </head>
 <body>
+  <nav>
+    <div class="nav_bar">
+      <input  type="text">
+      <select>  
+        <option> Tracks </option>
+        <option> Lables </option>
+        <option> Artists </option>
+      </select>
+      
+      <input type="submit" value="Search">
+      
+    </div>
+  </nav>
+
+  <div class="result_container"> 
+    <img class="result_image" width="200px" height="200px" src="https://geo-media.beatport.com/image_size/300x300/eb2da16e-6e88-48ef-a019-f85159e6a443.jpg" alt="Break">
+    <div class="result_title">Break ft. MC Fats - Natural Way (Break Remix)</div>
+    <div class="result_link">Here is a link</div>
+  </div>
   <h1>Drop Radar</h1>
 
   <button id="searchBtn">Search</button>
