@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" href="styles/style.css">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Drop Radar</title>
-</head>
-<body>
-  <nav>
-    <div class="nav_bar">
-      <input  type="text">
-      <select>  
-        <option> Tracks </option>
-        <option> Lables </option>
-        <option> Artists </option>
-      </select>
-      
-      <input type="submit" value="Search">
-      
+  <head>
+    <link rel="stylesheet" href="styles/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drop Radar</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav_bar">
+        <input type="text" />
+        <select>
+          <option>Tracks</option>
+          <option>Lables</option>
+          <option>Artists</option>
+        </select>
+
+        <input type="submit" value="Search" />
+      </div>
+    </nav>
+
+    <div class="result_container">
+      <img
+        class="result_image"
+        width="200px"
+        height="200px"
+        src="https://geo-media.beatport.com/image_size/300x300/eb2da16e-6e88-48ef-a019-f85159e6a443.jpg"
+        alt="Break"
+      />
+      <div class="result_title">
+        Break ft. MC Fats - Natural Way (Break Remix)
+      </div>
+      <div class="result_link">Here is a link</div>
     </div>
-  </nav>
 
-  <div class="result_container"> 
-    <img class="result_image" width="200px" height="200px" src="https://geo-media.beatport.com/image_size/300x300/eb2da16e-6e88-48ef-a019-f85159e6a443.jpg" alt="Break">
-    <div class="result_title">Break ft. MC Fats - Natural Way (Break Remix)</div>
-    <div class="result_link">Here is a link</div>
-  </div>
-  <h1>Drop Radar</h1>
+    <h1>Drop Radar</h1>
+    <p>Search specifically for mixes</p>
 
-  <button id="searchBtn">Search</button>
+    <form id="searchForm">
+      <label for="artistInput">Artist name:</label>
+      <input
+        type="text"
+        id="artistInput"
+        name="artist"
+        placeholder="e.g. Alix Perez"
+        required
+      />
+      <button type="submit">🔍 Search</button>
+    </form>
 
-  <div id="results"></div>
+    <div id="results"></div>
 
-  <script type="module" src="js/script.js"></script>
-</body>
+    <script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>
+    <script type="module" src="js/script.js"></script>
+  </body>
 </html>

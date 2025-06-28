@@ -1,15 +1,19 @@
-import { searchYouTube } from "./youtubeSearch.js";
+import { searchYouTubeMixes } from "./youtubeSearch.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const searchBtn = document.getElementById("searchBtn");
+  const searchForm = document.getElementById("searchForm");
+  const artistInput = document.getElementById("artistInput");
   const resultsDiv = document.getElementById("results");
 
-  const artist = "Break";
+  searchForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // prevent page reload
 
-  searchBtn.addEventListener("click", async () => {
+    const artist = artistInput.value.trim();
+    if (!artist) return;
+
     resultsDiv.innerHTML = "🔍 Searching...";
 
-    const results = await searchYouTube(artist);
+    const results = await searchYouTubeMixes(artist);
 
     if (results.length === 0) {
       resultsDiv.textContent = "No matching videos found.";
@@ -27,14 +31,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const div = document.createElement("div");
       div.innerHTML = `
-    <p>
-      <a href="${video.url}" target="_blank">${video.title}</a><br />
-      <small>
-        📅 Published: ${formattedDate} <br />
-        ⏱️ Duration: ${video.duration}
-      </small>
-    </p>
-  `;
+        <div style="margin-bottom: 1em;">
+          <a href="${video.url}" target="_blank">
+            <img src="${video.thumbnail}" alt="Thumbnail for ${video.title}" style="width: 100%; max-width: 360px; border-radius: 8px;" />
+          </a>
+          <p>
+            <a href="${video.url}" target="_blank">${video.title}</a><br />
+            <small>
+              📅 Published: ${formattedDate} <br />
+              ⏱️ Duration: ${video.duration}
+            </small>
+          </p>
+        </div>
+      `;
+
       resultsDiv.appendChild(div);
     }
   });
